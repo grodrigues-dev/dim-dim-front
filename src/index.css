@@ -1,0 +1,177 @@
+
+
+body {
+    font-family: Arial; 
+    background: #cfcfcf; 
+    padding: 0
+}
+
+.icon{
+    max-height: 100%;
+    margin: 2px 15px;
+}
+
+header, footer{
+    display: flex;
+    justify-content: space-between; 
+    background-color: #e65c5f; 
+    color: #fff; 
+    height: 50px;
+    align-items: center
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+ul li{ 
+    display: inline;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+ul{
+    margin: 20px;
+}
+
+.login{
+    border: solid 1px;
+    display: flex; 
+    flex-direction: column; 
+    background: url('./assets/images/img01.jpg') no-repeat;
+    background-size:100% ;
+    background-position: center
+}
+
+fieldset{
+    border: none;
+}
+
+.form{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    width: 30%;
+    margin: 0 80px;
+}
+
+.form input{
+    width: 100%;
+    height: 30px;
+    text-align: center; 
+    font-size: 20px;
+}
+
+.form button {
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 20px;
+    color: #fff;
+    background: #FF5A5F; 
+    border: none;
+}
+
+.form label{
+    color: #fff;
+    font-size: 18px;
+    font-family: arial;
+}
+
+.txt-negocie{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #fff
+}
+
+h1{
+    font-size: 50px 
+}
+h2{
+    font-size: 30px;
+    color: #e65c5f; 
+}
+
+.conteudo{
+    height: 500px;
+    display: flex;
+    justify-content: space-between; 
+    text-align: justify;
+    line-height: 30px;
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+
+.carrossel{
+    width: 40%;
+    border-right: 1px solid #fff;
+    padding: 0 25px
+    
+}
+
+.images{
+    width: 50%;
+}
+
+.typingText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: #e65c5f;
+    margin: 0; 
+    color: #000; 
+    font-size: 30px; 
+    text-align: center; 
+    font-weight: bold;
+}
+
+.queroNegociar{
+    background: #e65c5f;
+    height: 100px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.queroNegociar button{
+   height: 50px;
+   background-color: #000; 
+   border: none;
+   color: #fff;
+   border-radius: 5px;
+   font-size: 25px;
+}
+
+.algumaCoisa{
+    display: flex;
+    height: fit-content;
+    padding: 5px;
+    background-color: #241f24;
+    justify-content: space-around
+}
+
+.algumaCoisa img {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.algumaCoisa p {
+    color: #e65c5f; 
+    font-size: 18px;
+}
+
+.cards{
+ display: flex;
+ justify-content: center;
+ flex-direction: column
+}
+
+ .branco{
+    color: white !important
+}
