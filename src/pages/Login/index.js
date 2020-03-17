@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react'; 
 
+
 import logo from '../../assets/icons/dinheiro.svg'
 import calc from '../../assets/icons/calc.svg'
 import cofrinho from '../../assets/icons/cofrinho.svg'
 import cartao from '../../assets/icons/forma-de-pagamento.svg'
 import banco from '../../assets/icons/museu.svg'
 
+import api from '../../services/api'
 
-export default function Login(){
+
+export default function Login({history}){
 
     const [text, setText] = useState('')
+    const [cpf, setCpf] = useState('')
 
     useEffect(()=>{
         function typintText(){
@@ -26,6 +30,21 @@ export default function Login(){
         }
         typintText()
     }, [])
+
+      async function handleSubmit (event) {
+        event.preventDefault();
+        const response = await api.post('/login', {cpf}); 
+        if(response.data.success){
+            localStorage.setItem('user', cpf)
+            history.push('/home')
+        }
+    
+    }
+     
+         
+    
+
+
     return (
         <>
             <header>
@@ -39,15 +58,21 @@ export default function Login(){
             <div className="container">
             <main className="login">
                 <div className="form">
-                    <form action="">
+                    <form >
                         <h1 className="txt-negocie">Ganhe Tempo</h1>
                         <p className="txt-negocie"> Evite filas, ganhe tempo, negocie online com a gente!</p>
                         <fieldset>
                             <label htmlFor="cpf">CPF</label>
-                            <input type="text" placeholder="000.000.000-00" id="cpf" />
+                            <input 
+                                type="text"
+                                placeholder="000.000.000-00"
+                                id="cpf"
+                                value={cpf}
+                                onChange={e => setCpf(e.target.value)}
+                               />
                         </fieldset>
                         <fieldset>
-                            <button>Consultar</button>
+                            <button type="button" onClick={handleSubmit}>Consultar</button>
                       </fieldset> 
                     </form>
                 </div>
@@ -71,7 +96,7 @@ export default function Login(){
                 </div>
             </div>
             <div className="typingText">
-        <p id="text">{text}</p>
+        {/* <p id="text">{text}</p> */}
         </div>
         </div>
         </>

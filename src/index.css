@@ -14,7 +14,7 @@ body {
 header, footer{
     display: flex;
     justify-content: space-between; 
-    background-color: #e65c5f; 
+    background-color: #241f24; 
     color: #fff; 
     height: 50px;
     align-items: center
@@ -174,4 +174,29 @@ h2{
 
  .branco{
     color: white !important
+}
+
+table th {
+ border: solid 1px;
+}
+
+table td {
+    border: solid 1px;
+    width: 20%;
+    text-align: center;
+   }
+
+table{
+    border-collapse: collapse;
+    width: 80%;
+    font-size: 18px;
+}
+
+table button{
+    background-color: #e65c5f;
+    border: none;
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
 }
