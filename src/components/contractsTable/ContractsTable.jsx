@@ -4,7 +4,7 @@ import './index.css'
 function TableContracts({contracts, nome}){
      return(
     <table>
-        <h4>Seja bem vindo </h4>
+        <h4>Seja bem vindo {nome} </h4>
         <tbody>
             <tr>
                 <th>Contrato</th>
