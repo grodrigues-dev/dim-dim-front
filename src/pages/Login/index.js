@@ -19,10 +19,10 @@ export default function Login({history}){
             </ul>
             </header>
             <div className="container">
-            <LoginComponent history={history}/>
-            <Banner/>
-            {/* <TypingText/> */}
-        </div>
+                <LoginComponent history={history}/>
+                <Banner/>
+                {/* <TypingText/> */}
+            </div>
         </>
     )
 }

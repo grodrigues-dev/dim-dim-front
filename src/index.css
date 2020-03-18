@@ -1,6 +1,5 @@
 body {
     font-family: Arial; 
-    
     padding: 0
 }
 
@@ -23,7 +22,6 @@ header, footer{
     flex-direction: column;
 }
 
-
 ul li{ 
     display: inline;
     padding: 15px;
@@ -43,76 +41,8 @@ h2{
     color: #e65c5f; 
 }
 
-.conteudo{
-    height: 500px;
-    display: flex;
-    justify-content: space-between; 
-    text-align: justify;
-    line-height: 30px;
-    padding: 0 20px;
-    font-size: 20px;
-}
-
-
-.carrossel{
-    width: 40%;
-    border-right: 1px solid #fff;
-    padding: 0 25px
-    
-}
-
-.images{
-    width: 50%;
-}
-
-.queroNegociar{
-    background: #e65c5f;
-    height: 100px;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-}
-
-.queroNegociar button{
-   height: 50px;
-   background-color: #000; 
-   border: none;
-   color: #fff;
-   border-radius: 5px;
-   font-size: 25px;
-}
-
-
-table th {
- border: solid 1px;
-}
-
-table td {
-    border: solid 1px;
-    width: 20%;
-    text-align: center;
-    background: #cfcfcf; 
-   }
-
-table{
-    border-collapse: collapse;
-    width: 80%;
-    font-size: 18px;
-  
-}
-
-table button{
-    background-color: #e65c5f;
-    border: none;
-    width: 100%;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-}
-
 .home-main{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
