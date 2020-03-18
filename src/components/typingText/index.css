@@ -1,0 +1,12 @@
+.typingText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: #e65c5f;
+    margin: 0; 
+    color: #000; 
+    font-size: 30px; 
+    text-align: center; 
+    font-weight: bold;
+}

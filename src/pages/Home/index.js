@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import logo from '../../assets/icons/dinheiro.svg'
 import api  from '../../services/api'
 
-export default function Home(){
+export default function Home({history}){
 
     const [contracts, setContracts] = useState([]);
     const [nome,setNome] = useState('')
@@ -11,6 +11,7 @@ export default function Home(){
      
     
     useEffect(()=>{
+        if (!user) return history.push('/') 
          async function loadContracts(){
             const response = await api.post('/dividas', {
                 cpf: user
@@ -28,6 +29,10 @@ export default function Home(){
         
     },[contracts])
 
+    function logout(){
+        localStorage.removeItem('user')
+        history.push('/')
+    }
     
 
     return(
@@ -37,13 +42,13 @@ export default function Home(){
                 <ul>
                     <li>Perfil</li>
                     <li>Cadastro</li>
-                    <li>Sair</li>
+                    <li><a onClick={logout}>Sair</a></li>
                 </ul>
             </header>
             {loadded && 
-            <main>
-                 <h4>Seja bem vindo {nome}</h4>
+            <main className="home-main">
                 <table>
+                 <h4>Seja bem vindo {nome}</h4>
                     <tbody>
                     <tr>
                         <th>Contrato</th>
@@ -63,7 +68,7 @@ export default function Home(){
                     ))}
                     </tbody>
                 </table>
-                {/* <form action="">
+                <form action="">
                         <fieldset>
                             <label htmlFor="data">Data de Pagamento</label>
                             <input type="text"/>
@@ -72,7 +77,15 @@ export default function Home(){
                             <label htmlFor="data">Valor</label>
                             <input type="number"/>
                         </fieldset>
-                </form> */}
+                        <fieldset>
+                            <label htmlFor="tipo">Tipo</label>
+                            <input type="number"/>
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="tipo">Tipo</label>
+                            <input type="number"/>
+                        </fieldset>
+                </form>
 
             </main>
             }

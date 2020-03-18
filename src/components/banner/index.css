@@ -1,0 +1,27 @@
+.algumaCoisa{
+    display: flex;
+    height: fit-content;
+    padding: 5px;
+    background-color: #241f24;
+    justify-content: space-around
+}
+
+.algumaCoisa img {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.algumaCoisa p {
+    color: #e65c5f; 
+    font-size: 18px;
+}
+
+.cards{
+ display: flex;
+ justify-content: center;
+ flex-direction: column
+}
+
+ .branco{
+    color: white !important
+}
