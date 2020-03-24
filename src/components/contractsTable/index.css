@@ -28,3 +28,12 @@ table th {
        padding: 0;
    }
    
+   form{
+    width: 80%;
+}
+
+fieldset{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}

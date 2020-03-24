@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-import TableContracts from '../../components/contractsTable/ContractsTable'
-import FormNegocia from '../../components/formNegocia/FormNegocia'
+import Proposta from '../../components/contractsTable/Proposta'
 
 import logo from '../../assets/icons/dinheiro.svg'
 import api  from '../../services/api'
@@ -51,8 +50,7 @@ export default function Home({history}){
             </header>
             {loadded && 
             <main className="home-main">
-                <TableContracts contracts={contracts} nome={nome}/>
-                <FormNegocia/>
+                <Proposta contracts={contracts} nome={nome}/>
             </main>
             }
         </>

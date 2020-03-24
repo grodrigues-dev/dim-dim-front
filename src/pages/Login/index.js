@@ -21,7 +21,7 @@ export default function Login({history}){
             <div className="container">
                 <LoginComponent history={history}/>
                 <Banner/>
-                {/* <TypingText/> */}
+                <TypingText/>
             </div>
         </>
     )
