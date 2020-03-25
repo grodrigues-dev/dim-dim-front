@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
-import moment from 'moment'
+import BusinessDay from '../businessDay/businessDay'
 
 function Proposta({contracts, nome}){
     
@@ -9,21 +9,8 @@ function Proposta({contracts, nome}){
     const [entrada, setEntrada] = useState(15)
     const [valorEntrada, setValorEntrada] = useState('')
 
-    const dates = []
-    let n = 0;
-    let day = moment().add(n, 'days').format('dddd')
-
-    while(dates.length<3){
-      if(day!='Saturday' && day!="Sunday"){
-        dates.push(moment().add(n, 'days').format('DD/MM/YYYY'))
-        n++
-        day = moment().add(n, 'days').format('dddd')
-      } 
-      else {
-        n++;
-        day = moment().add(n, 'days').format('dddd')
-      }
-    }
+    const dates = BusinessDay()
+   
 
     function showProposta(proposta){
         setProposta(proposta)
