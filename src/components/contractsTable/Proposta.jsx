@@ -9,7 +9,7 @@ function Proposta({contracts, nome}){
     const [entrada, setEntrada] = useState(15)
     const [valorEntrada, setValorEntrada] = useState('')
 
-    const dates = BusinessDay()
+    const dates = BusinessDay(3)
    
 
     function showProposta(proposta){

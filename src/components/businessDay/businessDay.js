@@ -1,11 +1,11 @@
 import moment from 'moment'
 
-function BusinessDay (){
+function BusinessDay (days){
     const dates = []
     let n = 0;
     let day = moment().add(n, 'days').format('dddd')
 
-    while(dates.length<3){
+    while(dates.length<days){
       if(day!='Saturday' && day!="Sunday"){
         dates.push(moment().add(n, 'days').format('DD/MM/YYYY'))
         n++
