@@ -6,15 +6,18 @@ function Proposta({contracts, nome}){
     
     const [proposta, setProposta] = useState('')
     const [parcelas, setParcelas] = useState([1])
+    const [qtdParcelas, setQtdParcelas] = useState(2);
     const [entrada, setEntrada] = useState(15)
     const [valorEntrada, setValorEntrada] = useState('')
+    const [valorParcela, setValorParcela] = useState('')
+    const [valorTotal, setValorTotal] = useState('')
 
     const dates = BusinessDay(3)
    
 
     function showProposta(proposta){
         setProposta(proposta)
-        console.log(proposta);
+        setValorTotal(proposta.valorTotal)
         
     }
 
@@ -25,16 +28,19 @@ function Proposta({contracts, nome}){
             setParcelas([1])
         }
     }
+
+    const calcValores = ()=>{
+        let valor = ((proposta.valorTotal-valorEntrada)/qtdParcelas).toFixed(2); 
+        setValorEntrada(((proposta.valorTotal/100)*entrada).toFixed(2));
+        setValorParcela(valor);
+        console.log('teste', valor);
+        
+    }
     
-    useEffect(()=>{
-        setValorEntrada((proposta.valor_parcela * (entrada/100)).toFixed(2))
-    }, [parcelas])
-
-
     return(
     <>
+    <h4>Seja bem vindo {nome} </h4>
     <table>
-        <h4>Seja bem vindo {nome} </h4>
         <tbody>
             <tr>
                 <th>Contrato</th>
@@ -48,7 +54,7 @@ function Proposta({contracts, nome}){
                     <td>{contract.contrato}</td>
                     <td>{contract.descricao_produto}</td>
                     <td>{contract.data_vencimento}</td>
-                    <td>{contract.valor_parcela}</td>
+                    <td>{contract.valorTotal}</td>
                     <td><button onClick={()=>showProposta(contract)}>Negociar</button></td>
                 </tr>
             ))}
@@ -61,9 +67,13 @@ function Proposta({contracts, nome}){
                 <label htmlFor="data">Data de Pagamento</label>
                 <select name="" id="data">
                     {proposta && dates.map(date => (
-                        <option value={date}>{date}</option>
+                        <option value={date} key={date}>{date}</option>
                     ))}
                 </select>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="data">Valor Total</label>
+                <input type="number" readOnly={true} value={valorTotal}/>
             </fieldset>
             <fieldset>
                 <label htmlFor="tipo">Tipo</label>
@@ -72,20 +82,16 @@ function Proposta({contracts, nome}){
                     <option value="AP">Pagamento parcelado</option>
                 </select>
             </fieldset>
+            { parcelas.length>1 && 
+            <>
             <fieldset>
                 <label htmlFor="tipo">Quantidade de Parcelas</label>
-                <select name="" id="">
+                <select name="" id="" onChange={(e)=> setQtdParcelas(e.target.value)}>
                     {proposta && parcelas.map(parcela => (
-                        <option value={parcela}>{parcela}</option>
+                        <option value={parcela} key={parcela}>{parcela}</option>
                     ))}
                 </select>
             </fieldset>
-            <fieldset>
-                <label htmlFor="data">Valor</label>
-                <input type="number" value={proposta.valor_parcela}/>
-            </fieldset>
-            { parcelas.length>1 && 
-            <>
                 <fieldset>
                     <label htmlFor="entrada">Percentual entrada</label>
                     <select name="" id="" onChange={(e)=> setEntrada(e.target.value)}>
@@ -94,14 +100,15 @@ function Proposta({contracts, nome}){
                     </select>
                 </fieldset>
                 <fieldset>
+                    <button type="button" onClick={calcValores}>Calcular</button>
+                </fieldset>
+                <fieldset>
                     <label htmlFor="valor_entrada">Valor da entrada</label>
-                    <input type="text" name="" id="" value={valorEntrada}/>
+                    <input type="text" name="" id="" readOnly={true} value={valorEntrada}/>
                 </fieldset>
                 <fieldset>
                     <label htmlFor="valor_entrada">Valor das Parcelas</label>
-                    <input type="text" name="" id=""value={
-                        (proposta.valor_parcela - (proposta.valor_parcela * (entrada/100)))/(parcelas.length+1)
-                    }/>
+                    <input type="text" name="" id="" readOnly={true} value={valorParcela}/>
                 </fieldset>
             </>
             }
